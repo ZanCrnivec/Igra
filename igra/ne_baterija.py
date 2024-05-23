@@ -116,7 +116,7 @@ player = Player(500, 400, 20)
 campfire = Campfire(500, 400, pygame.image.load("ogenj1.png"), pygame.image.load("ogenj2.png"))
 
 display_scroll = [0, 0]
-timer = 20
+timer = 25
 tema_image = pygame.image.load("tema5.png")
 
 tema = Tema(1500, 1500, tema_image)
