@@ -116,7 +116,7 @@ player = Player(500, 400, 20)
 campfire = Campfire(500, 400, pygame.image.load("ogenj1.png"), pygame.image.load("ogenj2.png"))
 
 display_scroll = [0, 0]
-timer = 30
+timer = 20
 tema_image = pygame.image.load("tema5.png")
 
 tema = Tema(1500, 1500, tema_image)
@@ -139,14 +139,14 @@ while True:
     
     if keys[pygame.K_LSHIFT] and stamina_bar.stamina > 0:
         speed = 6
-        stamina_bar.stamina -= 0.5
+        stamina_bar.stamina -= 0.4
     else:
-        speed = 3
+        speed = 2
         if stamina_bar.stamina < stamina_bar.max_stamina:
             if any([keys[pygame.K_a], keys[pygame.K_d], keys[pygame.K_w], keys[pygame.K_s]]):
-                stamina_bar.stamina += 0.2
+                stamina_bar.stamina += 0.1
             else:
-                stamina_bar.stamina += 0.5
+                stamina_bar.stamina += 0.7
     
     if keys[pygame.K_a]:
         display_scroll[0] -= speed
@@ -185,6 +185,7 @@ while True:
     if check_proximity(500, 400, (campfire.x + 285) - display_scroll[0], (campfire.y + 180) - display_scroll[1]):
         timer += stick_inv * 5
         score += stick_inv * 5
+        
         stick_inv = 0
 
     if timer < 0:
@@ -205,7 +206,7 @@ while True:
 
     draw_text("Palce: ", text_font, (255, 255, 255), 330, 550, stick_inv)
     draw_text("Čas: ", text_font, (255, 255, 255), 620, 550, int(timer // 1))
-    draw_text("Točke: ", text_font, (255, 255, 255), 460, 0, int(score // 1))
+    draw_text("Score: ", text_font, (255, 255, 255), 460, 0, int(score // 1))
     stamina_bar.draw(display)
 
     clock.tick(60)
