@@ -7,7 +7,7 @@ pygame.init()
 
 display = pygame.display.set_mode((1000, 800))
 pygame.display.set_caption("Nočna straža")
-pygame.display.set_icon(pygame.image.load("drevo.png"))
+pygame.display.set_icon(pygame.image.load("drevo1.png"))
 clock = pygame.time.Clock()
 
 class Player:
